@@ -3,25 +3,33 @@ import {useState} from 'react';
 
 
 function App(){
-  const listaDePecas = []
   const [nome,  setNome ] = useState('')
   const [quantidade, setQuantidade] = useState('')
-  const [valor, setValor] = useState()
-  const [item,  setItem ] = useState()
+  const [valor, setValor] = useState(0)
+
+  const [item,  setItem ] = useState('')
+
 
 
   
   function handleRegister(e){
     e.preventDefault();
-    alert('criado com sucesso')
-    setItem({
-      nome: nome,
-      quantidade: quantidade,
-      valor: valor,
-    })
+    
+    setItem([
+      ...item,
+      {
+        nome : nome,
+        quantidade : quantidade,
+        valor : valor
+      }] 
+    )
 
+
+    console.log(item)
 
   }
+
+  
 
   return (
     <>
@@ -55,7 +63,7 @@ function App(){
 
       <span>Nome = {item.nome}  </span><br/>
       <span>Valor = {item.quantidade}</span><br/>
-      <span>quantidade = {item.valor}</span><br/>
+      <span>Quantidade = {item.valor}</span><br/>
     </>
   )
 }
