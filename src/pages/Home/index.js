@@ -1,19 +1,16 @@
 import {useState} from 'react';
 import { Link } from 'react-router-dom';
 
-let total = 0
+let total = 0.00
 
 export default function Home(props){
 const [fields, setFields] = useState([])
-let subtotal = 0
 const [item,  setItem ] = useState([])
 
 const handleFieldsChange = (e) => setFields({
     ...fields,
     [e.currentTarget.name]: e.currentTarget.value,
 })
-
-let data =5
 
 function handleSubmit(e) {
     e.preventDefault();
@@ -26,6 +23,14 @@ function handleSubmit(e) {
         itemOrcado,
       ]
     )
+}
+
+function formataReal (entrada){
+    if (typeof(entrada) == 'string'){
+        entrada = parseFloat(entrada)
+    }
+    const saida = entrada.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+    return saida
 }
 
 
@@ -50,6 +55,7 @@ return (
 
             <label>Valor:</label>
             <input 
+            type='text'
             placeholder='Digite o valor'
             name='valor'
             value={fields.valor ? fields.valor : ''}
@@ -73,13 +79,13 @@ return (
                     <tr key={index}>
                         <td>{peca.nome}</td>
                         <td>{peca.quantidade}</td>
-                        <td>R${peca.valor}</td>
-                        <td>R${peca.subtotal}</td>
+                        <td>{formataReal(peca.valor)}</td>
+                        <td>{formataReal(peca.subtotal)}</td>
                     </tr>
                 ))}  
             </tbody>
         </table>
-        <h1>Total: R${total}</h1>
+        <h1>Total: {formataReal(total)}</h1>
         <Link to='/print' state={{ data: item, total:total}}> Link</Link>
       
     </>
