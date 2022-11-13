@@ -1,5 +1,5 @@
 import { useLocation } from "react-router-dom"
-
+import Logo from "../../assets/logo.jpeg"
 
 function formataReal (entrada){
     if (typeof(entrada) == 'string'){
@@ -11,13 +11,13 @@ function formataReal (entrada){
 
 export default function Print(props){
     const location = useLocation()
-    let realBRLocale = Intl.NumberFormat('en-US');
     const data = location.state.data
     const total = location.state.total
     const dados = location.state.dados
 
     return (
         <>
+        <img src={Logo}></img>
         <h1>Orçamento</h1>
         <h2>Cliente: {dados.cliente} -- Veiculo {dados.veiculo}</h2> 
         <table>
