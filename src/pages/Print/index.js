@@ -14,16 +14,19 @@ export default function Print(props){
     let realBRLocale = Intl.NumberFormat('en-US');
     const data = location.state.data
     const total = realBRLocale.format(location.state.total)
-    console.log(total)
+    const dados = location.state.dados
+
+    console.log(dados)
     return (
         <>
         <h1>Orçamento</h1>
+        <h2>Cliente: {dados.cliente} -- Veiculo {dados.veiculo}</h2> 
         <table>
         <thead>
             <tr>
                 <th>Item</th>
                 <th>Quantidade</th>
-                <th>Pre;o</th>
+                <th>Preco</th>
                 <th>Subtotal</th>
             </tr>
         </thead>
