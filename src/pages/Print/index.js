@@ -13,10 +13,9 @@ export default function Print(props){
     const location = useLocation()
     let realBRLocale = Intl.NumberFormat('en-US');
     const data = location.state.data
-    const total = realBRLocale.format(location.state.total)
+    const total = location.state.total
     const dados = location.state.dados
 
-    console.log(dados)
     return (
         <>
         <h1>Orçamento</h1>

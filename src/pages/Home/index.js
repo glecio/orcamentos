@@ -1,5 +1,6 @@
 import {useState} from 'react';
 import { Link } from 'react-router-dom';
+import '../../Output.css'; 
 
 let total = 0.00
 let nomecliente = ''
@@ -27,6 +28,7 @@ function handleSubmit(e) {
     e.preventDefault();
     let itemOrcado = {...fields, 'subtotal': fields.valor * fields.quantidade}
     total += itemOrcado.subtotal
+    console.log (inputs)
     setFields('')
     
     setItem(
@@ -47,6 +49,9 @@ function formataReal (entrada){
 
 return (
     <>
+    <h1 class="text-3xl font-bold underline text-blue-600">
+    Hello world!
+  </h1>
         <form onSubmit={handleSubmit}>
             <label>Nome do cliente</label>
             <input 
@@ -113,7 +118,7 @@ return (
             </tbody>
         </table>
         <h1>Total: {formataReal(total)}</h1>
-        <Link to='/print' state={{ data: item, dados:inputs}}> Link</Link>
+        <Link to='/print' state={{ data: item, total:total, dados:inputs}}> Link</Link>
       
     </>
   )
