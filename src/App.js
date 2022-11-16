@@ -4,7 +4,7 @@ import Print from "./pages/Print";
 
 export default function App(){
   return(
-    <BrowserRouter>
+    <BrowserRouter basename={window.location.pathname || ''}>
       <Routes>
           <Route index element={<Home />} />
           <Route path="print" element={<Print />} />
