@@ -27,7 +27,6 @@ function handleSubmit(e) {
     e.preventDefault();
     let itemOrcado = {...fields, 'subtotal': fields.valor * fields.quantidade}
     total += itemOrcado.subtotal
-    console.log (inputs)
     setFields('')
     
     setItem(
@@ -55,8 +54,8 @@ return (
                     <div className="w-full px-3 sm:w-1/2 mb-4">
                         <div className="border rounded-md relative h-16">
                             <label
-                            for="fName"
-                            className="absolute -top-3 left-2 px-1 text-base font-medium text-[#07074D] bg-white"
+                                htmlFor="cliente"
+                                className="absolute -top-3 left-2 px-1 text-base font-medium text-[#07074D] bg-white"
                             >
                             Nome do cliente
                             </label>
@@ -65,7 +64,6 @@ return (
                                 name='cliente'
                                 value={ inputs.cliente ? inputs.cliente : ''}
                                 onChange={handleChange}
-                                id="fName"
                                 className="block w-full h-full rounded-md bg-white py-1 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
                             />
                         </div>
@@ -73,34 +71,33 @@ return (
                     <div className="w-full px-3 sm:w-1/2 mb-4">
                         <div className="border rounded-md relative h-16">
                             <label
-                            for="lName"
-                            className="absolute -top-3 left-2 px-1 text-base font-medium text-[#07074D] bg-white"
+                                htmlFor="veiculo"
+                                className="absolute -top-3 left-2 px-1 text-base font-medium text-[#07074D] bg-white"
                             >
                             Veículo / Cor / Placa
                             </label>
                             <input
-                            type="text"
-                            name="veiculo"
-                            value={ inputs.veiculo ? inputs.veiculo : ''}
-                            onChange={handleChange}                            
-                            placeholder=" Veículo / Cor / Placa"
-                            className="block w-full h-full rounded-md bg-white py-1 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+                                type="text"
+                                name="veiculo"
+                                value={ inputs.veiculo ? inputs.veiculo : ''}
+                                onChange={handleChange}                            
+                                placeholder=" Veículo / Cor / Placa"
+                                className="block w-full h-full rounded-md bg-white py-1 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
                             />
                         </div>
                     </div>
-                
                 </div>
-      
 
                 <div className="flex flex-wrap">
                     <div className="w-full px-3 sm:w-1/2">
                         <div className="mb-5 border rounded-md relative h-16">
                             <label
-                                for="fName"
+                                htmlFor="fName"
                                 className="absolute -top-3 left-2 px-1 text-base font-medium text-[#07074D] bg-white">
                             Item
                             </label>
                             <input
+                                required
                                 placeholder='Peça ou serviço'
                                 name='nome'
                                 value={ fields.nome ? fields.nome : ''}
@@ -112,13 +109,15 @@ return (
                     <div className="w-full px-3 sm:w-1/6">
                         <div className="mb-5 border relative h-16">
                             <label
-                                for="lName"
+                                htmlFor="lName"
                                 className="absolute -top-3 left-2 px-1 text-base font-medium text-[#07074D] bg-white"
                             >
                             Quantidade
                             </label>
                             <input
+                                required
                                 name="quantidade"
+                                type="number"
                                 placeholder="Digite a quantidade"
                                 value={fields.quantidade ? fields.quantidade : ''}
                                 onChange={handleFieldsChange}
@@ -129,13 +128,14 @@ return (
                     <div className="w-full px-3 sm:w-1/6">
                         <div className="mb-5 relative border h-16">
                             <label
-                            for="lName"
-                            className="absolute -top-3 left-2 px-1 text-base font-medium text-[#07074D] bg-white"
+                                htmlFor="lName"
+                                className="absolute -top-3 left-2 px-1 text-base font-medium text-[#07074D] bg-white"
                             >
-                        Valor
+                            Valor
                             </label>
                             <input
-                                type='text'
+                                required
+                                type='number'
                                 placeholder='Digite o valor'
                                 name='valor'
                                 value={fields.valor ? fields.valor : ''}
@@ -147,20 +147,18 @@ return (
                     <div className="w-full p-3 h-16 sm:w-1/6">
                         <button type='submit' className='content-center items-center p-3 rounded-md text-sm font-medium text-white bg-blue-700 border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800'>+</button>
                     </div>
-                
                 </div>
             
-
-            
             </form>
+
             <div className='mt-5'>
-                <table className="border-collapse w-full border">
+                <table className="table-fixed border-collapse w-full border">
                     <thead>
                         <tr>
-                            <th className="p-2 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 lg:table-cell">Item1</th>
-                            <th className="p-2 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 lg:table-cell">Qtde</th>
-                            <th className="p-2 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 lg:table-cell">preço</th>
-                            <th className="p-2 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 lg:table-cell">subtotal</th>
+                            <th className="p-1 font-bold uppercase bg-gray-100 text-gray-600 border border-gray-300 lg:table-cell">Item</th>
+                            <th className="p-1 w-1/6 font-bold uppercase bg-gray-100 text-gray-600 border border-gray-300 lg:table-cell">Qtde</th>
+                            <th className="p-1 w-1/6 font-bold uppercase bg-gray-100 text-gray-600 border border-gray-300 lg:table-cell">preço</th>
+                            <th className="p-1 w-1/6 font-bold uppercase bg-gray-100 text-gray-600 border border-gray-300 lg:table-cell">subtotal</th>
                         </tr>
                     </thead>
 
@@ -171,7 +169,6 @@ return (
                                 <td className="border">{peca.quantidade}</td>
                                 <td className="border">{formataReal(peca.valor)}</td>
                                 <td className="border">{formataReal(peca.subtotal)}</td>
-
                             </tr>
                         
                         ))} 
@@ -182,8 +179,7 @@ return (
                         </tr>
                     </tbody>
                 </table>
-
-                <Link to='/print' state={{ data: item, total:total, dados:inputs}} className='content-center my-3 inline-flex items-center p-3 rounded-md text-sm font-medium text-white bg-blue-700 border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800' > Imprimir</Link>
+                <Link to='/print' state={{ data: item, total:total, dados:inputs}} className="content-center my-3 inline-flex items-center p-3 rounded-md text-sm font-medium text-white bg-blue-700 border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" > Imprimir</Link>
             </div>
         </div>
     </>
