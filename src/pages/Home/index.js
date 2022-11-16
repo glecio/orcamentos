@@ -199,7 +199,6 @@ return (
                 </table>
                 <Link to='/print' state={{ data: item, total:total, dados:inputs}} className="content-center my-3 inline-flex items-center p-3 rounded-md text-sm font-medium text-white bg-blue-700 border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" > Imprimir</Link>
             </div>
-            <div className="text-right text-4xl text-blue-400">ewrhwekrjhgewrkjhgkjh</div>
         </div>
     </>
   )
