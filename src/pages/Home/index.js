@@ -1,7 +1,8 @@
 import {useState} from 'react';
 import { Link } from 'react-router-dom';
 import '../../Output.css'; 
-
+import { IconContext } from "react-icons";
+import {BiTrash} from 'react-icons/bi'
 let total = 0.00
 
 
@@ -21,6 +22,13 @@ const handleChange = (event) => {
     const value = event.target.value;
     setInputs(values => ({...values, [name]: value}))
 }
+
+const deleteItem = (event) => {
+    const name = event.target.name;
+    console.log(name)
+   
+}
+
 
 
 function handleSubmit(e) {
@@ -48,7 +56,7 @@ function formataReal (entrada){
 return (
     <>
         <div className="w-full px-1">
-            <h1 className="text-3xl mb-3 font-bold underline text-blue-600">   Gabiru 4x4 - Orçamento  </h1>
+            <h1 className="text-3xl text-center mb-3 font-bold underline text-blue-600">   Gabiru 4x4 - Orçamento  </h1>
             <form onSubmit={handleSubmit}>
                 <div className="mb-5 flex flex-wrap">
                     <div className="w-full px-3 sm:w-1/2 mb-4">
@@ -159,6 +167,7 @@ return (
                             <th className="p-1 w-1/6 font-bold uppercase bg-gray-100 text-gray-600 border border-gray-300 lg:table-cell">Qtde</th>
                             <th className="p-1 w-1/6 font-bold uppercase bg-gray-100 text-gray-600 border border-gray-300 lg:table-cell">preço</th>
                             <th className="p-1 w-1/6 font-bold uppercase bg-gray-100 text-gray-600 border border-gray-300 lg:table-cell">subtotal</th>
+                            <th className="p-1 w-1/6 font-bold uppercase bg-gray-100 text-gray-600 border border-gray-300 lg:table-cell">ações</th>
                         </tr>
                     </thead>
 
@@ -169,6 +178,15 @@ return (
                                 <td className="border">{peca.quantidade}</td>
                                 <td className="border">{formataReal(peca.valor)}</td>
                                 <td className="border">{formataReal(peca.subtotal)}</td>
+                                <td className="border text-center">
+                                    <div className='flex justify-center'>
+                                        <IconContext.Provider value={{ color: "red", className: "cursor-pointer"}}>
+                                            <div className='flex item-center justify-center'>
+                                            <BiTrash onClick={deleteItem}/>
+                                            </div>
+                                        </IconContext.Provider>
+                                    </div>
+                                </td>
                             </tr>
                         
                         ))} 
@@ -181,6 +199,7 @@ return (
                 </table>
                 <Link to='/print' state={{ data: item, total:total, dados:inputs}} className="content-center my-3 inline-flex items-center p-3 rounded-md text-sm font-medium text-white bg-blue-700 border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" > Imprimir</Link>
             </div>
+            <div className="text-right text-4xl text-blue-400">ewrhwekrjhgewrkjhgkjh</div>
         </div>
     </>
   )
