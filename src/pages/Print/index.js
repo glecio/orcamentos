@@ -1,5 +1,5 @@
 import { useLocation } from "react-router-dom"
-import Logo from "../../assets/logo.jpeg"
+import Logo from "../../assets/logo.png"
 
 function formataReal (entrada){
     if (typeof(entrada) == 'string'){
