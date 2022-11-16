@@ -1,10 +1,14 @@
 {
   "files": {
-    "main.js": "/orcamentos/static/js/main.6d272d95.js",
+    "main.css": "/orcamentos/static/css/main.1f621b52.css",
+    "main.js": "/orcamentos/static/js/main.f3d19c0a.js",
+    "static/media/logo.jpeg": "/orcamentos/static/media/logo.a58f55c748cb692b6165.jpeg",
     "index.html": "/orcamentos/index.html",
-    "main.6d272d95.js.map": "/orcamentos/static/js/main.6d272d95.js.map"
+    "main.1f621b52.css.map": "/orcamentos/static/css/main.1f621b52.css.map",
+    "main.f3d19c0a.js.map": "/orcamentos/static/js/main.f3d19c0a.js.map"
   },
   "entrypoints": [
-    "static/js/main.6d272d95.js"
+    "static/css/main.1f621b52.css",
+    "static/js/main.f3d19c0a.js"
   ]
 }
